@@ -1,0 +1,355 @@
+/* ==========================================================================
+   CSS Custom Properties (Theme Variables)
+   ========================================================================== */
+:root {
+  --bg-color: #ffffff;
+  --card-bg: #f8fafc;
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --accent: #2563eb;
+  --accent-hover: #1d4ed8;
+  --border-color: #e2e8f0;
+  --transition-speed: 0.25s;
+}
+
+[data-theme="dark"] {
+  --bg-color: #0b0f19;
+  --card-bg: #111827;
+  --text-main: #f9fafb;
+  --text-muted: #9ca3af;
+  --accent: #3b82f6;
+  --accent-hover: #60a5fa;
+  --border-color: #1f2937;
+}
+
+/* ==========================================================================
+   Reset & Base Styles
+   ========================================================================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
+    sans-serif;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  transition:
+    background-color var(--transition-speed),
+    color var(--transition-speed);
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   Layout Containers & Headers
+   ========================================================================== */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  background: var(--bg-color);
+  border-bottom: 1px solid var(--border-color);
+  z-index: 100;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.nav-brand {
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--text-main);
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  list-style: none;
+}
+
+.nav-links a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color var(--transition-speed);
+}
+
+.nav-links a:hover {
+  color: var(--accent);
+}
+
+.theme-btn {
+  background: none;
+  border: 1px solid var(--border-color);
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+  cursor: pointer;
+  color: var(--text-main);
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: border-color var(--transition-speed);
+}
+
+.theme-btn:hover {
+  border-color: var(--accent);
+}
+
+/* ==========================================================================
+   Typography & Reusable Components
+   ========================================================================== */
+section {
+  padding: 4.5rem 0;
+}
+
+.section-title {
+  font-size: 1.75rem;
+  margin-bottom: 2rem;
+  position: relative;
+  display: inline-block;
+}
+
+.section-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 40px;
+  height: 3px;
+  background-color: var(--accent);
+  border-radius: 2px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all var(--transition-speed);
+}
+
+.btn-primary {
+  background-color: var(--accent);
+  color: #ffffff;
+  border: 1px solid var(--accent);
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-hover);
+  border-color: var(--accent-hover);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--text-main);
+  border: 1px solid var(--border-color);
+}
+
+.btn-outline:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* ==========================================================================
+   Hero Section
+   ========================================================================== */
+#hero {
+  padding-top: 6rem;
+}
+
+.hero-greeting {
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.hero-title {
+  font-size: 2.75rem;
+  font-weight: 800;
+  margin: 0.5rem 0 1rem;
+  line-height: 1.2;
+}
+
+.hero-bio {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  max-width: 600px;
+  margin-bottom: 2rem;
+}
+
+.cta-group {
+  display: flex;
+  gap: 1rem;
+}
+
+/* ==========================================================================
+   Skills Section
+   ========================================================================== */
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.skill-tag {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   Projects Section
+   ========================================================================== */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.project-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition:
+    transform var(--transition-speed),
+    border-color var(--transition-speed);
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+}
+
+.project-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.project-card p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 1.25rem;
+}
+
+.project-tech {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.25rem;
+}
+
+.tech-pill {
+  font-size: 0.75rem;
+  padding: 0.2rem 0.5rem;
+  background: var(--border-color);
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.project-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.project-links a {
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.project-links a:hover {
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   Contact Form & Footer
+   ========================================================================== */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  max-width: 500px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.form-group label {
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  background: var(--card-bg);
+  color: var(--text-main);
+  font-family: inherit;
+  font-size: 0.95rem;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+footer {
+  border-top: 1px solid var(--border-color);
+  padding: 2.5rem 0;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* ==========================================================================
+   Responsive Breakpoints
+   ========================================================================== */
+@media (max-width: 600px) {
+  .hero-title {
+    font-size: 2.1rem;
+  }
+  .nav-links {
+    gap: 0.85rem;
+  }
+}
